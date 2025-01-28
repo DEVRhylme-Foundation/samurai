@@ -6,7 +6,6 @@
 [Cheng-Yen Yang](https://yangchris11.github.io), [Hsiang-Wei Huang](https://hsiangwei0903.github.io/), [Wenhao Chai](https://rese1f.github.io/), [Zhongyu Jiang](https://zhyjiang.github.io/#/), [Jenq-Neng Hwang](https://people.ece.uw.edu/hwang/)
 
 [Information Processing Lab, University of Washington](https://ipl-uw.github.io/) 
-
 </div>
 
 
@@ -38,6 +37,7 @@ pip install -e ".[notebooks]"
 Please see [INSTALL.md](https://github.com/facebookresearch/sam2/blob/main/INSTALL.md) from the original SAM 2 repository for FAQs on potential issues and solutions.
 
 Install other requirements:
+
 ```
 pip install matplotlib==3.7 tikzplotlib jpeg4py opencv-python lmdb pandas scipy loguru
 ```
