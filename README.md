@@ -14,6 +14,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/samurai-adapting-segment-anything-model-for-1/visual-object-tracking-on-needforspeed)](https://paperswithcode.com/sota/visual-object-tracking-on-needforspeed?p=samurai-adapting-segment-anything-model-for-1)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/samurai-adapting-segment-anything-model-for-1/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=samurai-adapting-segment-anything-model-for-1)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/samurai-adapting-segment-anything-model-for-1/visual-object-tracking-on-otb-2015)](https://paperswithcode.com/sota/visual-object-tracking-on-otb-2015?p=samurai-adapting-segment-anything-model-for-1)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FDEVRhylme-Foundation%2Fsamurai.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FDEVRhylme-Foundation%2Fsamurai?ref=badge_shield)
 
 [[Arxiv]](https://arxiv.org/abs/2411.11922) [[Project Page]](https://yangchris11.github.io/samurai/) [[Raw Results]](https://drive.google.com/drive/folders/1ssiDmsC7mw5AiItYQG4poiR1JgRq305y?usp=sharing) 
 
@@ -141,3 +142,7 @@ Please consider citing our paper and the wonderful `SAM 2` if you found our work
   url={https://arxiv.org/abs/2411.11922}, 
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FDEVRhylme-Foundation%2Fsamurai.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FDEVRhylme-Foundation%2Fsamurai?ref=badge_large)
