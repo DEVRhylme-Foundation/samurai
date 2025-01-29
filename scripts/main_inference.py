@@ -7,7 +7,6 @@ import torch
 from sam2.build_sam import build_sam2_video_predictor
 from tqdm import tqdm
 
-
 def load_lasot_gt(gt_path):
     with open(gt_path, 'r') as f:
         gt = f.readlines()
@@ -19,7 +18,6 @@ def load_lasot_gt(gt_path):
         prompts[fid] = ((x, y, x+w, y+h), 0)
 
     return prompts
-
 
 color = [
     (255, 0, 0),
@@ -69,6 +67,9 @@ for vid, video in enumerate(test_videos):
         bbox, track_label = prompts[0]
         frame_idx, object_ids, masks = predictor.add_new_points_or_box(state, box=bbox, frame_idx=0, obj_id=0)
 
+        consecutive_missing_frames = 0
+        max_consecutive_missing_frames = 10  # Threshold for consecutive missing frames
+
         for frame_idx, object_ids, masks in tqdm(predictor.propagate_in_video(state), total=num_frames, desc=f"Processing {video_basename}"):
 
             mask_to_vis = {}
@@ -84,11 +85,17 @@ for vid, video in enumerate(test_videos):
                 mask_to_vis[obj_id] = mask
 
             if save_to_video:
-                img = cv2.imread(f'{frame_folder}/{frame_idx+1:08d}.jpg')
+                img_path = f'{frame_folder}/{frame_idx+1:08d}.jpg'
+                img = cv2.imread(img_path)
                 if img is None:
                     print(f"Warning: Frame {frame_idx+1:08d} not found. Skipping frame.")
+                    consecutive_missing_frames += 1
+                    if consecutive_missing_frames > max_consecutive_missing_frames:
+                        print(f"Exceeded maximum consecutive missing frames ({max_consecutive_missing_frames}). Stopping processing.")
+                        break
                     continue
-                
+                consecutive_missing_frames = 0
+
                 for obj_id in mask_to_vis.keys():
                     mask_img = np.zeros((height, width, 3), np.uint8)
                     mask_img[mask_to_vis[obj_id]] = color[(obj_id+1) % len(color)]
