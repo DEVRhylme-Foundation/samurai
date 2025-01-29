@@ -6,6 +6,7 @@ import cv2
 import torch
 import gc
 import sys
+
 sys.path.append("./sam2")
 from sam2.build_sam import build_sam2_video_predictor
 
