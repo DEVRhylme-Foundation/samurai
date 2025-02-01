@@ -275,6 +275,7 @@ Please consider citing our paper and the wonderful `SAM 2` if you found our work
 │       ├── misc.py
 │       ├── tensor.py
 │       └── variable_hook.py
+├── repo_structure.txt
 ├── sam2
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md

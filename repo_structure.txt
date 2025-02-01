@@ -123,6 +123,7 @@
 │       ├── misc.py
 │       ├── tensor.py
 │       └── variable_hook.py
+├── repo_structure.txt
 ├── sam2
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
