@@ -28,7 +28,7 @@ All rights are reserved to the copyright owners (TM & © Universal (2019)). This
 #### SAMURAI Installation 
 
 SAM 2 needs to be installed first before use. The code requires `python>=3.10`, as well as `torch>=2.3.1` and `torchvision>=0.18.1`. Please follow the instructions [here](https://github.com/facebookresearch/sam2?tab=readme-ov-file) to install both PyTorch and TorchVision dependencies. You can install **the SAMURAI version** of SAM 2 on a GPU machine using:
-```
+```bash
 cd sam2
 pip install -e .
 pip install -e ".[notebooks]"
@@ -43,8 +43,8 @@ pip install matplotlib==3.7 tikzplotlib jpeg4py opencv-python lmdb pandas scipy 
 ```
 
 #### SAM 2.1 Checkpoint Download
-
-```
+Download the required checkpoints by running:
+```bash
 cd checkpoints && \
 ./download_ckpts.sh && \
 cd ..
@@ -73,8 +73,17 @@ data/LaSOT
 └── testing_set.txt
 ```
 
+- `full_occlusion.txt`: Indicates frames where the object is fully occluded.
+- `groundtruth.txt`: Contains the ground truth bounding boxes for each frame.
+- `img`: Directory containing the image frames.
+- `nlp.txt`: Natural language description of the sequence.
+- `out_of_view.txt`: Indicates frames where the object is out of view.
+
+Ensure that the dataset is correctly downloaded and extracted into the `data/LaSOT` directory.
+
 #### Main Inference
-```
+To run the main inference script, use the following command:
+```bash
 python scripts/main_inference.py 
 ```
 
@@ -94,6 +103,36 @@ python scripts/demo.py --video_path <your_video.mp4> --txt_path <path_to_first_f
 ```
 # Only JPG images are supported
 python scripts/demo.py --video_path <your_frame_directory> --txt_path <path_to_first_frame_bbox.txt>
+```
+## Evaluation Scripts
+
+### LaSOT and LaSOT-ext
+```
+To run the evaluation on LaSOT and LaSOT-ext benchmarks, follow these steps:
+1. Ensure your results are saved in the results/LaSOT directory.
+2. Run the evaluation script:
+python scripts/evaluate_lasot.py
+```
+### GOT-10k
+```
+To run the evaluation on GOT-10k, follow these steps:
+1. Ensure your results are saved in the results/GOT-10k directory.
+2. Run the evaluation script:
+python scripts/evaluate_got10k.py
+```
+### NFS
+```
+To run the evaluation on NFS, follow these steps:
+1. Ensure your results are saved in the results/NFS directory.
+2. Run the evaluation script:
+python scripts/evaluate_nfs.py
+```
+### OTB-2015
+```
+To run the evaluation on OTB-2015, follow these steps:
+1. Ensure your results are saved in the results/OTB-2015 directory.
+2. Run the evaluation script:
+python scripts/evaluate_otb2015.py
 ```
 
 ## FAQs
@@ -141,3 +180,6 @@ Please consider citing our paper and the wonderful `SAM 2` if you found our work
   url={https://arxiv.org/abs/2411.11922}, 
 }
 ```
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
