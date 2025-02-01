@@ -96,6 +96,16 @@ python scripts/demo.py --video_path <your_video.mp4> --txt_path <path_to_first_f
 python scripts/demo.py --video_path <your_frame_directory> --txt_path <path_to_first_frame_bbox.txt>
 ```
 
+<details>
+   <summary>
+      <h2>Repository Structure</h2>
+   </summary>
+
+   The Repository structure of the project is as follows:
+<!-- START_STRUCTURE -->
+<!-- END_STRUCTURE -->
+</details>
+
 ## FAQs
 **Question 1:** Does SAMURAI need training? [issue 34](https://github.com/yangchris11/samurai/issues/34)
 
