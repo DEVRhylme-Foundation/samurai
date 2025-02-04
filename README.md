@@ -10,43 +10,79 @@
 
 
 
-This repository is the official implementation of SAMURAI: Adapting Segment Anything Model for Zero-Shot Visual Tracking with Motion-Aware Memory
+SAMURAI is a cutting-edge visual tracking model that adapts the Segment Anything Model (SAM) for zero-shot tracking tasks. It leverages motion-aware memory to enhance tracking performance without requiring additional training. SAMURAI utilizes the pre-trained weights from SAM 2.1 and integrates a Kalman filter for accurate object tracking across frames. This approach is particularly effective for various visual object tracking benchmarks, including LaSOT, GOT-10k, and OTB-2015.
+
+## 🔑Key Features
+- **Zero-Shot Tracking:** SAMURAI does not require additional training and directly uses the pre-trained SAM 2.1 weights.
+- **Motion-Aware Memory:**  Incorporates a Kalman filter to estimate and predict object motion, improving tracking robustness
+- **State-of-the-Art Performance** Achieves top results on multiple VOT benchmarks, including LaSOT, GOT-10k, NFS, and OTB. 
+
+## 🎥DEMO VIDEO
 
 https://github.com/user-attachments/assets/9d368ca7-2e9b-4fed-9da0-d2efbf620d88
 
 
 
-## Getting Started
+## 📘Usage Guide
 
-#### SAMURAI Installation 
 
-SAM 2 needs to be installed first before use. The code requires `python>=3.10`, as well as `torch>=2.3.1` and `torchvision>=0.18.1`. Please follow the instructions [here](https://github.com/facebookresearch/sam2?tab=readme-ov-file) to install both PyTorch and TorchVision dependencies. You can install **the SAMURAI version** of SAM 2 on a GPU machine using:
+### 🛠️SAMURAI Installation 
+
+#### Step 1: Install Python
+First, ensure you have Python installed on your system. SAMURAI requires Python 3.10 or higher. You can download Python from the official website. [here](https://python.org) 
+
+#### Step 2: Set Up a Virtual Environment
+It's a good practice to use a virtual environment to manage dependencies. Open your terminal or command prompt and run the following commands:
+
+Install virtualenv if you don't have it
+``` Bash
+pip install virtualenv
 ```
+
+Create a virtual environment named 'samurai_env'
+``` Bash
+virtualenv samurai_env
+```
+
+**Activate the virtual environment**
+
+On Windows
+``` Bash
+samurai_env\Scripts\activate
+```
+
+On macOS/Linux
+```Bash
+source samurai_env/bin/activate
+````
+#### Step 3: Install SAM 2
+Clone the SAM 2 repository:
+
+``` bash
+git clone https://github.com/DEVRhylme-Foundation/samurai.git
 cd sam2
+```
+Install SAM 2
+``` bash
 pip install -e .
 pip install -e ".[notebooks]"
-```
+````
 
-Please see [INSTALL.md](https://github.com/facebookresearch/sam2/blob/main/INSTALL.md) from the original SAM 2 repository for FAQs on potential issues and solutions.
-
-Install other requirements:
-
-```
+#### Step 4: Install Additional Requirements
+Install the additional dependencies required by SAMURAI:
+``` bash
 pip install matplotlib==3.7 tikzplotlib jpeg4py opencv-python lmdb pandas scipy loguru
 ```
-
-#### SAM 2.1 Checkpoint Download
-
-```
-cd checkpoints && \
-./download_ckpts.sh && \
+#### Step 5: Download SAM 2.1 Checkpoints
+Download the necessary checkpoints for SAM 2.1:
+``` bash
+cd checkpoints
+./download_ckpts.sh
 cd ..
 ```
-
-#### Data Preparation
-
-Please prepare the data in the following format:
-```
+#### Step 6: Prepare Your Data
+Organize your data in the following format:
+``` bash
 data/LaSOT
 ├── airplane/
 │   ├── airplane-1/
@@ -65,29 +101,26 @@ data/LaSOT
 ├── training_set.txt
 └── testing_set.txt
 ```
+#### Step 7: Run Main Inference
+Execute the main inference script to start tracking:
 
-#### Main Inference
-```
+```bash
 python scripts/main_inference.py 
 ```
+#### Step 8: Demo on Custom Video
+To run the demo with your custom video or frame directory, use the following commands:
 
-## Demo on Custom Video
-
-To run the demo with your custom video or frame directory, use the following examples:
-
-**Note:** The `.txt` file contains a single line with the bounding box of the first frame in `x,y,w,h` format while the SAM 2 takes `x1,y1,x2,y2` format as bbox input.
-
-### Input is Video File
-
-```
+##### Input is Video File:
+``` bash
 python scripts/demo.py --video_path <your_video.mp4> --txt_path <path_to_first_frame_bbox.txt>
 ```
+##### Input is Frame Folder:
 
-### Input is Frame Folder
-```
-# Only JPG images are supported
+Only JPG images are supported
+``` bash
 python scripts/demo.py --video_path <your_frame_directory> --txt_path <path_to_first_frame_bbox.txt>
 ```
+
 
 ## FAQs
 **Question 1:** Does SAMURAI need training? [issue 34](https://github.com/yangchris11/samurai/issues/34)
