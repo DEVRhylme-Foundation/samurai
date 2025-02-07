@@ -1,4 +1,46 @@
-# Ignore everything in this directory
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.virtualenv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Cache files
+*.cache
+*.log
+*.bak
+*.swp
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Pytest / Coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# VS Code settings
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# macOS
+.DS_Store
+
+# Ignore everything except this file
 *
-# Except this file
 !.gitignore
